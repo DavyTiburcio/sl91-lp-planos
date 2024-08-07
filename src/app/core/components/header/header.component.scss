@@ -1,0 +1,59 @@
+header {
+  width: 100%;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.125);
+
+  .container {
+    display: flex;
+    max-width: 1500px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+
+    &__itens {
+      display: flex;
+      align-items: center;
+
+      .logos {
+        display: flex;
+        align-items: center;
+      }
+
+      ul {
+        display: flex;
+        gap: 10px;
+        margin: 0 20px;
+
+        a {
+          font-size: 1rem;
+          font-weight: 600;
+          color: #66667F;
+          transition: .4s;
+
+          &:hover { color: #000; }
+        }
+      }
+    }
+
+  }
+
+  button {
+    background-color: #fff;
+    color: #66667F;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #66667F;
+    border-radius: 22px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: .4s;
+
+    &:hover {
+      background-color: #01539E;
+      color: #fff;
+      border:2px solid #01539E;
+    }
+  }
+
+}
