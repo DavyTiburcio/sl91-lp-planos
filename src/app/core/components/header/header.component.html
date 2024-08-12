@@ -1,22 +1,63 @@
-<header>
-  <div class="container">
-    <div class="container__itens">
-      <div class="logos">
-        <img src="assets/logo.jpeg" alt="" width="150">
-        <img src="assets/trilogo.png" alt="" width="300">
+<header class="w-full shadow-md fixed bg-white z-10">
+    <div class="max-w-screen-2xl m-auto flex justify-between px-5 gap-5 container">
+      <!-- BTN MOBILE -->
+      <div class="hidden mobile">
+        <button class="p-1 border border-borderMobile rounded-md btn" (click)="activeMobile()">
+          <img src="assets/menu.svg" alt="menu hamburguer">
+        </button>
+        @if (open) {
+            <div class="absolute bg-white border border-borderMobile top-20 rounded-md z-10">
+            <nav>
+              <ul class="flex flex-col gap-3 text-colorDefault font-semibold py-2 pl-3 pr-11">
+                <li class="duration-300 hover:text-black text-sm">
+                  <a href="#">Início</a>
+                </li>
+                <li class="duration-300 hover:text-black text-sm">
+                  <a href="#">Descontos</a>
+                </li>
+                <li class="duration-300 hover:text-black text-sm">
+                  <a href="#">Planos de saúde</a>
+                </li>
+                <li class="duration-300 hover:text-black text-sm">
+                  <a href="#">Plano empresarial</a>
+                </li>
+                <li class="duration-300 hover:text-black text-sm">
+                  <a href="#">Vantagens</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          }
       </div>
-      <nav>
-        <ul>
-          <li><a href="#">Início</a></li>
-          <li><a href="#">Descontos</a></li>
-          <li><a href="#">Planos de saúde</a></li>
-          <li><a href="#">Plano empresarial</a></li>
-          <li><a href="#">Vantagens</a></li>
-        </ul>
-      </nav>
+      <!-- LOGOS E NAVBAR-->
+      <div class="flex items-center gap-3 relative">
+        <!-- lOGOS -->
+        <div class="flex items-center logos">
+          <img src="assets/logo.jpeg" alt="" width="120">
+          <img src="assets/trilogo.png" alt="" width="300">
+        </div>
+        <!-- NAVBAR -->
+        <nav class="navbar">
+          <ul class="flex gap-3 text-colorDefault font-semibold">
+            <li class="duration-300 hover:text-black"><a href="#">Início</a></li>
+            <li class="duration-300 hover:text-black"><a href="#">Descontos</a></li>
+            <li class="duration-300 hover:text-black"><a href="#">Planos de saúde</a></li>
+            <li class="duration-300 hover:text-black"><a href="#">Plano empresarial</a></li>
+            <li class="duration-300 hover:text-black"><a href="#">Vantagens</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- BUTTON -->
+      <div class="flex items-center">
+        <a href="#">
+          <button class="border-2 border-colorDefault py-1 px-5 rounded-3xl text-colorDefault font-semibold duration-300 hover:bg-backgroundBtn hover:border-backgroundBtn hover:text-white">
+            Simular plano
+          </button>
+        </a>
+      </div>
     </div>
-    <div>
-      <button>Simular plano</button>
-    </div>
-  </div>
 </header>
+
+
+
+

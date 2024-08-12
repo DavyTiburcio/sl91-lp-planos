@@ -1,0 +1,52 @@
+main {
+  background-image: url('../../../../public/assets/teste.jpg');
+  background-size: cover;
+  background-position-y: 35%;
+  width: 100%;
+  height: 750px;
+  position: relative;
+
+  .linear {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    background-image: linear-gradient(to right, rgba(16, 60, 161, 0.67), rgba(29, 29, 29, 0.34), rgba(201, 76, 3, 0.634));
+  }
+
+  label { font-weight: 500; }
+  input {
+    padding: 10px 15px;
+    border-radius: 6px;
+    color: var(--colorDefault);
+    outline-style: none;
+    border: 1px solid transparent;
+    &:focus { border: 1px solid var(--colorDefault); }
+  }
+}
+
+.background {
+  background-image: url('../../../../public/assets/call.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 500px;
+  position: relative;
+
+  .linear2 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(10, 48, 124, 0.767);
+    backdrop-filter: blur(5px);
+  }
+
+  .container { height: 500px; }
+}
+
+.banner {
+  border-top: 12px solid var(--orange);
+  border-bottom: 12px solid var(--orange);
+}
+

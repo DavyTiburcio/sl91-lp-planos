@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  public open: boolean | null = null;
 
+  public activeMobile(){
+    this.open = !this.open;
+  }
 }

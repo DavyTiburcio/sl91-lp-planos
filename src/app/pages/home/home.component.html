@@ -1,1 +1,148 @@
-<app-header />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- HEADER -->
+<app-header/>
+
+<!-- MAIN CONTENT-->
+<main>
+  <div class="linear">
+    <div class="max-w-screen-2xl m-auto flex items-center justify-between gap-10 px-5 h-full text-white">
+      <div class="flex flex-col gap-4 max-w-2xl">
+        <h1 class="text-4xl font-bold uppercase">Saiba os preços e encontre o plano perfeito para você!</h1>
+        <span class="text-2xl font-semibold">Entre em contato e ganhe um <span class="text-orange uppercase font-bold">desconto imperdível</span> no plano Hapvida hoje!</span>
+        <a href=""><button class="bg-orange py-3 px-6 rounded-xl text-lg font-medium uppercase">Converse com um consultor agora!</button></a>
+      </div>
+      <div class="max-w-sm text-black py-8 px-5 rounded-lg bg-backForm mt-16">
+        <form action="" class="flex flex-col ">
+          <div class="flex flex-col items-center justify-center gap-4 text-center mb-2">
+            <h1 class="font-bold text-2xl">Simule seu plano aqui</h1>
+            <span class="text-colorDefault font-medium">Preencha seus dados para receber uma proposta personalizada especial.</span>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div class="flex flex-col">
+              <label for="name">Nome</label>
+              <input type="text" id="name">
+            </div>
+            <div class="flex flex-col">
+              <label for="email">Email</label>
+              <input type="email" id="email">
+            </div>
+            <div class="flex flex-col">
+              <label for="tel">Telefone</label>
+              <input type="tel" id="tel">
+            </div>
+            <div class="flex flex-col">
+              <label for="city">Cidade</label>
+              <input type="text" id="city">
+            </div>
+            <a href=""><button class="bg-orange w-full text-white text-sm font-semibold py-2 rounded-md">Simular plano</button></a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- BENEFICIOS-->
+<section class="max-w-screen-xl m-auto">
+  <div>
+    <h1 class="max-w-xl m-auto text-center font-semibold text-5xl my-16">O plano de saúde <span class="text-orange">perfeito</span> a um valor acessível</h1>
+  </div>
+  <div class="grid grid-cols-3 gap-7">
+    @for (item of beneficios; track item) {
+      <div class="flex flex-col gap-3 border-r border-borderMobile p-4">
+        <div class="flex items-center justify-center w-16 h-16 bg-blue-900 rounded-full">
+          <img [src]="item.img" alt="">
+        </div>
+        <h1 class="font-medium text-2xl"> {{ item.title }} </h1>
+        <span class="text-colorDefault"> {{ item.description }} </span>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- CALL -->
+<section>
+  <div class="background my-16">
+    <div class="linear2">
+      <div class="flex items-center max-w-screen-xl m-auto container px-5">
+        <div class="w-full h-full">
+          <img src="assets/men.png" alt="" class="h-full object-cover">
+        </div>
+        <div class="flex flex-col gap-4 text-white">
+          <h1 class="text-5xl font-semibold">Planos de Saúde <span class="text-orange">Empresariais</span></h1>
+          <p class="text-lg">Priorizamos sua empresa e seus colaboradores com qualidade e eficiência, promovendo mais saúde e bem-estar. Oferecemos planos de saúde adaptados às necessidades da sua empresa, com flexibilidade nas negociações. Nosso objetivo é proporcionar o melhor atendimento de saúde para todos os seus colaboradores.</p>
+          <span class="font-semibold text-xl">Comece com desconto a partir de <span class="text-orange">apenas 1 pessoa</span> no plano empresarial!</span>
+          <a href="#"><button class="bg-orange uppercase text-xl py-3 px-4 rounded-xl">Quero saber mais!</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="max-w-screen-xl m-auto">
+  <div class="flex flex-col items-center text-center">
+    <div class="flex flex-col gap-1">
+      <h1 class="text-5xl font-semibold">Planos de saúde com <span class="text-backgroundBtn">Desconto:</span></h1>
+      <h2 class="text-5xl font-semibold text-orange">Escolha o seu agora!</h2>
+      <span class="text-3xl text-colorDefault font-semibold">Garanta o seu plano de saúde <span class="text-black">agora!</span></span>
+      <p class="text-colorDefault mb-14 max-w-screen-md">Descubra o plano perfeito para você com os descontos exclusivos. Faça uma cotação rápida em apenas 3 minutos pelo WhatsApp e comece a cuidar da sua saúde hoje mesmo!</p>
+    </div>
+    <div class="flex gap-6">
+      <app-planos
+        img="assets/homem.png"
+        tipoPlano="Individual"
+        descriptionPlano="Não deixe a correria do dia a dia prejudicar sua saúde."
+        check1="Cobertura Completa: Abrange consultas, exames e uma ampla gama de tratamentos."
+        check2="Atendimento Prioritário: Redução de filas e espera."
+        check3="Liberdade de Escolha: Escolha seus médicos e especialistas."
+        check4="Emergências: Suporte 24 horas em casos urgentes."
+        check5="Bem-Estar: Incentivos para hábitos saudáveis."
+        />
+        <app-planos
+        default="{{default}}"
+        img="assets/familia.png"
+        tipoPlano="Familiar"
+        descriptionPlano="Sua família merece o melhor cuidado."
+        check1="Proteção Total: Para todos os membros da família."
+        check2="Consultas Pediátricas: Especialistas em cuidados infantis."
+        check3="Rede Ampliada: Acesso a hospitais e clínicas renomadas."
+        check4="Assistência Domiciliar: Atendimento em casa quando necessário."
+        check5="Descontos em Medicamentos: Economia em farmácias parceiras."
+        />
+        <app-planos
+        img="assets/empresa.png"
+        tipoPlano="Empresarial"
+        descriptionPlano="Ofereça o melhor para seus colaboradores."
+        check1="Custos Reduzidos: Planos acessíveis para empresas."
+        check2="Benefício para Funcionários: Satisfação e bem-estar da equipe."
+        check3="Gestão de Saúde Ocupacional: Apoio à saúde no ambiente de trabalho."
+        check4="Programas de Bem-Estar: Incentivos para hábitos saudáveis."
+        check5="Atração de Talentos: Vantagem competitiva na contratação."
+        />
+    </div>
+  </div>
+</section>
+
+<!-- BANNER -->
+<section class="bg-red mt-14 w-full h-96 banner relative">
+  <div class="flex flex-col items-center justify-center h-full mr-5 ml-5">
+    <div class="grid grid-cols-2 items-center text-white mb-11 relative z-50 max-w-screen-xl mr-auto ml-auto">
+      <h1 class="font-semibold text-5xl text-right pr-4 border-r-2">Quer saber quanto custa o plano ideal pra você?</h1>
+      <div class="ml-4">
+        <p>Planos a partir de</p>
+        <span class="font-semibold text-6xl">R$ 84,82*</span>
+      </div>
+    </div>
+    <a href=""><button class="bg-orange py-2 px-6 rounded-3xl font-medium text-white text-lg">Clique para conhecer os detalhes</button></a>
+  </div>
+  <div class="absolute right-0 bottom-0">
+    <img src="assets/mulher.png" alt="" width="500">
+  </div>
+</section>
+
+<!-- FOOTER -->
+<app-footer />
+
+

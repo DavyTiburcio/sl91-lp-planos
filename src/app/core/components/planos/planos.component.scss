@@ -1,0 +1,6 @@
+li {
+  padding-left: 15px;
+  font-weight: 500;
+  text-align: left;
+  &::marker { content: '✔︎'; }
+}
