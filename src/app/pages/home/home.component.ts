@@ -36,7 +36,7 @@ export class HomeComponent{
       .set('Accept', 'application/json');
       this.apiService.httpClient.post(environment.url,
           {
-            nome: this.formHome.value.nome,
+            name: this.formHome.value.nome,
             email: this.formHome.value.email,
             telefone: this.formHome.value.telefone,
             cidade: this.formHome.value.cidade,
