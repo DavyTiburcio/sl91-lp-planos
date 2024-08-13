@@ -1,10 +1,14 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from "../../core/components/header/header.component";
 import { beneficios } from '../../shared/interfaces/beneficios';
 import { PlanosComponent } from '../../core/components/planos/planos.component';
 import { FooterComponent } from "../../core/components/footer/footer.component";
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { apiService } from '../../shared/services/api.service';
+import { environment } from '../../shared/environments/environment';
+import { HttpHeaders } from '@angular/common/http';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +18,46 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  fb = inject(FormBuilder)
+export class HomeComponent{
+
+  fb = inject(FormBuilder);
+  apiService = inject(apiService);
+
   public formHome = this.fb.group({
-    
+    nome: [''],
+    email: [''],
+    telefone: [''],
+    cidade: [''],
   })
+
+  public sendForm(){
+    if(this.formHome.valid) {
+      const headers = new HttpHeaders().set('Content-Type', 'application/json')
+      .set('Accept', 'application/json');
+      this.apiService.httpClient.post(environment.url, JSON.stringify({
+        data: [
+          {
+            nome: this.formHome.value.nome,
+            email: this.formHome.value.email,
+            telefone: this.formHome.value.telefone,
+            cidade: this.formHome.value.cidade,
+          }
+        ]
+      }), {headers: headers}).pipe(finalize(() => {
+        this.clearForm()
+      })).subscribe()
+    }
+  }
+
+  private clearForm(){
+    this.formHome.patchValue({
+      nome: '',
+      email: '',
+      telefone: '',
+      cidade: ''
+    })
+    alert('Registro enviado com sucesso!')
+  }
 
   public default: boolean = false;
   public beneficios: beneficios[] = [
