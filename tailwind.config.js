@@ -10,6 +10,8 @@ module.exports = {
         white: 'var(--white)',
         black: 'var(--black)',
         orange: 'var(--orange)',
+        orangeHover: 'var(--orange-hover)',
+        redHover: 'var(--red-hover)',
         red: 'var(--red)',
         backForm: 'var(--background-form)',
       },

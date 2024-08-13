@@ -50,3 +50,12 @@ main {
   border-bottom: 12px solid var(--orange);
 }
 
+@media (max-width: 768px) {
+  main { height: 1000px; }
+}
+
+@media (max-width: 415px) {
+  .background { height: 600px; }
+  .linear2 { padding-top: 50px; }
+}
+
