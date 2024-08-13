@@ -1,17 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeaderComponent } from "../../core/components/header/header.component";
 import { beneficios } from '../../shared/interfaces/beneficios';
 import { PlanosComponent } from '../../core/components/planos/planos.component';
 import { FooterComponent } from "../../core/components/footer/footer.component";
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, PlanosComponent, FooterComponent],
+  imports: [CommonModule, HeaderComponent, PlanosComponent, FooterComponent, FormsModule,
+  ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  fb = inject(FormBuilder)
+  public formHome = this.fb.group({
+    
+  })
+
   public default: boolean = false;
   public beneficios: beneficios[] = [
   {
