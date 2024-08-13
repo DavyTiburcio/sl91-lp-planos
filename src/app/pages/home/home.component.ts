@@ -34,16 +34,14 @@ export class HomeComponent{
     if(this.formHome.valid) {
       const headers = new HttpHeaders().set('Content-Type', 'application/json')
       .set('Accept', 'application/json');
-      this.apiService.httpClient.post(environment.url, JSON.stringify({
-        data: [
+      this.apiService.httpClient.post(environment.url,
           {
             nome: this.formHome.value.nome,
             email: this.formHome.value.email,
             telefone: this.formHome.value.telefone,
             cidade: this.formHome.value.cidade,
-          }
-        ]
-      }), {headers: headers}).pipe(finalize(() => {
+          },
+      { headers: headers }).pipe(finalize(() => {
         this.clearForm()
       })).subscribe()
     }
