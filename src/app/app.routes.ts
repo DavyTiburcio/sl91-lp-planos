@@ -1,15 +1,19 @@
 import { Routes } from '@angular/router';
 // COMPONENTS
 import { HomeComponent } from './pages/home/home.component';
-import { SucessComponent } from './pages/sucess/sucess.component';
 
 export const routes: Routes = [
   {
     path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
     component: HomeComponent,
   },
   {
     path: 'sucesso',
-    component: SucessComponent,
+    loadComponent: () => import('./pages/sucess/sucess.component').then((p) => p.SucessComponent),
   }
 ];

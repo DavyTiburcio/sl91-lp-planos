@@ -52,9 +52,8 @@ export class HomeComponent{
             cidade: this.formHome.value.cidade,
           },
       { headers: headers }).pipe(finalize(() => {
-        const url = this.router.serializeUrl(this.router.createUrlTree(['/sucesso']));
-        window.open(url, '_blank');
-        this.clearForm()
+        this.router.navigate(['/sucesso']);
+        this.clearForm();
       })).subscribe()
     } else {
       alert("Preencha todas as informações corretamente!")
