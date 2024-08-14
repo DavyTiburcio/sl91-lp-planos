@@ -6,8 +6,10 @@ import { HomeComponent } from './pages/home/home.component';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, HomeComponent],
-  template: `<app-home />`,
+  template: `
+  <router-outlet />
+  `,
 })
 export class AppComponent {
- 
+
 }

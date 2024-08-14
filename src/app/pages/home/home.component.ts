@@ -15,6 +15,8 @@ import { beneficios } from '../../shared/interfaces/beneficios';
 import { HeaderComponent } from "../../core/components/header/header.component";
 import { PlanosComponent } from '../../core/components/planos/planos.component';
 import { FooterComponent } from "../../core/components/footer/footer.component";
+// ROUTER
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -26,9 +28,10 @@ import { FooterComponent } from "../../core/components/footer/footer.component";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent{
-  public oi = '';
+
   fb = inject(FormBuilder);
   apiService = inject(apiService);
+  router = inject(Router);
 
   public formHome = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3), stringValidator()]],
@@ -49,6 +52,8 @@ export class HomeComponent{
             cidade: this.formHome.value.cidade,
           },
       { headers: headers }).pipe(finalize(() => {
+        const url = this.router.serializeUrl(this.router.createUrlTree(['/sucesso']));
+        window.open(url, '_blank');
         this.clearForm()
       })).subscribe()
     } else {
@@ -63,7 +68,6 @@ export class HomeComponent{
       telefone: '',
       cidade: ''
     })
-    alert('Registro enviado com sucesso!')
   }
 
   public default: boolean = false;
