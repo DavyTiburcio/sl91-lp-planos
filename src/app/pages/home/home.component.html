@@ -29,24 +29,51 @@
           <div class="flex flex-col gap-3">
             <div class="flex flex-col">
               <label for="name">Nome</label>
-              <input type="text" id="name" formControlName="nome">
+              <input type="text" name="name" id="name" formControlName="name" maxlength="50" required>
+              <div>
+                @if(formHome.get('name')?.hasError('required')){
+                  <span></span>
+                } @else if(formHome.get('name')?.hasError('stringOnly') && formHome.get('name')?.dirty){
+                  <span class="text-xs text-red">Apenas letras, espaços e caracteres especiais permitidos.</span>
+                }
+              </div>
             </div>
             <div class="flex flex-col">
               <label for="email">Email</label>
-              <input type="email" id="email" formControlName="email">
+              <input type="email" id="email" formControlName="email" maxlength="50" required>
+              <div>
+                @if(formHome.get('email')?.hasError('pattern') && formHome.get('email')?.dirty){
+                  <span class="text-xs text-red">Insira um email válido.</span>
+                }
+              </div>
             </div>
             <div class="flex flex-col">
-              <label for="tel">Telefone</label>
-              <input type="tel" id="tel" formControlName="telefone">
+              <label for="telefone">Telefone</label>
+              <input type="tel" id="telefone" formControlName="telefone" mask="(00) 00000-0000" required>
+              <div>
+                @if(formHome.get('telefone')?.hasError('required')){
+                  <span></span>
+                } @else if(formHome.get('telefone')?.invalid && formHome.get('telefone')?.dirty){
+                  <span class="text-xs text-red">Insira um telefone válido.</span>
+                }
+              </div>
             </div>
             <div class="flex flex-col">
-              <label for="city">Cidade</label>
-              <input type="text" id="city" formControlName="cidade">
+              <label for="cidade">Cidade</label>
+              <input type="text" name="cidade" id="cidade" formControlName="cidade" maxlength="30" required>
+              <div>
+                @if(formHome.get('cidade')?.hasError('required')){
+                  <span></span>
+                } @else if(formHome.get('cidade')?.hasError('stringOnly') && formHome.get('cidade')?.dirty){
+                  <span class="text-xs text-red">Apenas letras, espaços e caracteres especiais permitidos.</span>
+                }
+
+              </div>
             </div>
-            <a href="" class="flex justify-center items-center gap-3 bg-orange w-full text-white text-sm font-semibold py-2 rounded-md hover:bg-orangeHover duration-200">
-              <button type="submit" (click)="sendForm()">Simular plano</button>
-              <svg width="20" height="20" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.048"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:none;} </style> <g id="surface1"> <path d="M2,3v7.8L18,12L2,13.2V21l20-9L2,3z"></path> </g> <rect class="st0" width="24" height="24"></rect> </g></svg>
-            </a>
+              <button class="flex justify-center items-center gap-3 bg-orange w-full text-white text-sm font-semibold py-2 rounded-md hover:bg-orangeHover duration-200" type="submit" (click)="sendForm()">Simular plano
+                <svg width="20" height="20" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.048"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:none;} </style> <g id="surface1"> <path d="M2,3v7.8L18,12L2,13.2V21l20-9L2,3z"></path> </g> <rect class="st0" width="24" height="24"></rect> </g></svg>
+              </button>
+
           </div>
         </form>
       </div>

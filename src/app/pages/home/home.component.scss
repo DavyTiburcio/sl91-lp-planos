@@ -21,7 +21,7 @@ main {
     color: var(--colorDefault);
     outline-style: none;
     border: 1px solid transparent;
-    &:focus { border: 1px solid var(--colorDefault); }
+
   }
 }
 
@@ -58,4 +58,5 @@ main {
   .background { height: 600px; }
   .linear2 { padding-top: 50px; }
 }
+
 

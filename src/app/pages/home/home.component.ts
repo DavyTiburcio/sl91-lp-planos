@@ -1,33 +1,40 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { HeaderComponent } from "../../core/components/header/header.component";
-import { beneficios } from '../../shared/interfaces/beneficios';
-import { PlanosComponent } from '../../core/components/planos/planos.component';
-import { FooterComponent } from "../../core/components/footer/footer.component";
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+// FORMULARIO
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { stringValidator } from '../../shared/validators/formulario';
+// SERVICE / API
 import { apiService } from '../../shared/services/api.service';
-import { environment } from '../../shared/environments/environment';
+import { environment } from '../../../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 import { finalize } from 'rxjs';
+// INTERFACES
+import { beneficios } from '../../shared/interfaces/beneficios';
+// COMPONENTS
+import { HeaderComponent } from "../../core/components/header/header.component";
+import { PlanosComponent } from '../../core/components/planos/planos.component';
+import { FooterComponent } from "../../core/components/footer/footer.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, HeaderComponent, PlanosComponent, FooterComponent, FormsModule,
-  ReactiveFormsModule],
+  ReactiveFormsModule, NgxMaskDirective],
+  providers: [provideNgxMask({})],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent{
-
+  public oi = '';
   fb = inject(FormBuilder);
   apiService = inject(apiService);
 
   public formHome = this.fb.group({
-    nome: [''],
-    email: [''],
-    telefone: [''],
-    cidade: [''],
+    name: ['', [Validators.required, Validators.minLength(3), stringValidator()]],
+    email: ['', [Validators.required, Validators.pattern(/.+@.+\..+/)]],
+    telefone: ['', [Validators.required]],
+    cidade: ['', [Validators.required, Validators.minLength(3), stringValidator()]],
   })
 
   public sendForm(){
@@ -36,7 +43,7 @@ export class HomeComponent{
       .set('Accept', 'application/json');
       this.apiService.httpClient.post(environment.url,
           {
-            name: this.formHome.value.nome,
+            name: this.formHome.value.name,
             email: this.formHome.value.email,
             telefone: this.formHome.value.telefone,
             cidade: this.formHome.value.cidade,
@@ -44,12 +51,14 @@ export class HomeComponent{
       { headers: headers }).pipe(finalize(() => {
         this.clearForm()
       })).subscribe()
+    } else {
+      alert("Preencha todas as informações corretamente!")
     }
   }
 
   private clearForm(){
     this.formHome.patchValue({
-      nome: '',
+      name: '',
       email: '',
       telefone: '',
       cidade: ''
