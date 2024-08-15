@@ -1,5 +1,5 @@
 main {
-  background-image: url('../../../../public/assets/teste.jpg');
+  background-image: url('../../../../public/assets/background.jpg');
   background-size: cover;
   background-position-y: 35%;
   width: 100%;
@@ -26,13 +26,12 @@ main {
 }
 
 .background {
-  background-image: url('../../../../public/assets/call.jpg');
+  background-image: url('../../../../public/assets/call.webp');
   background-position: center;
   background-size: cover;
   width: 100%;
   height: 500px;
   position: relative;
-
   .linear2 {
     width: 100%;
     height: 100%;
@@ -41,7 +40,6 @@ main {
     background-color: rgba(10, 48, 124, 0.767);
     backdrop-filter: blur(5px);
   }
-
   .container { height: 500px; }
 }
 

@@ -3,7 +3,7 @@
       <!-- BTN MOBILE -->
       <div class="hidden mobile">
         <button class="p-1 border border-borderMobile rounded-md btn" (click)="activeMobile()">
-          <img src="assets/menu.svg" alt="menu hamburguer">
+          <img src="assets/menu.svg" alt="menu hamburguer" width="27" height="22">
         </button>
         @if (open) {
             <div class="absolute bg-white border border-borderMobile top-20 rounded-md z-50">
@@ -30,20 +30,20 @@
           }
       </div>
       <!-- LOGOS E NAVBAR-->
-      <div class="flex items-center gap-3 relative">
+      <div class="flex items-center gap-1 relative">
         <!-- lOGOS -->
         <div class="flex items-center logos">
-          <img src="assets/logo.jpeg" alt="" width="120" class="max-sm:w-20">
-          <img src="assets/trilogo.png" alt="" width="300" class="max-sm:w-44">
+          <img [ngSrc]="logo" alt="logo central" width="120" height="78" class="max-sm:w-20">
+          <img [ngSrc]="trilogo" alt="trilogo planos" width="300" height="51" class="max-sm:w-44">
         </div>
         <!-- NAVBAR -->
         <nav class="navbar">
-          <ul class="flex gap-3 text-colorDefault font-semibold">
-            <li class="duration-300 hover:text-black"><a href="#home">Início</a></li>
-            <li class="duration-300 hover:text-black"><a href="#descontos">Descontos</a></li>
-            <li class="duration-300 hover:text-black"><a href="#planos">Planos de saúde</a></li>
-            <li class="duration-300 hover:text-black"><a href="#plano-empresarial">Plano empresarial</a></li>
-            <li class="duration-300 hover:text-black"><a href="#vantagens">Vantagens</a></li>
+          <ul class="flex gap-1 text-colorDefault font-semibold">
+            <li class="duration-300 hover:text-black p-1"><a href="#home">Início</a></li>
+            <li class="duration-300 hover:text-black p-1"><a href="#descontos">Descontos</a></li>
+            <li class="duration-300 hover:text-black p-1"><a href="#planos">Planos de saúde</a></li>
+            <li class="duration-300 hover:text-black p-1"><a href="#plano-empresarial">Plano empresarial</a></li>
+            <li class="duration-300 hover:text-black p-1"><a href="#vantagens">Vantagens</a></li>
           </ul>
         </nav>
       </div>

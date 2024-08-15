@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 // FORMULARIO
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { stringValidator } from '../../shared/validators/formulario';
 // SERVICE / API
 import { apiService } from '../../shared/services/api.service';
@@ -22,7 +22,7 @@ import { Router } from '@angular/router';
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, HeaderComponent, PlanosComponent, FooterComponent, FormsModule,
-  ReactiveFormsModule, NgxMaskDirective],
+  ReactiveFormsModule, NgxMaskDirective, NgOptimizedImage],
   providers: [provideNgxMask({})],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -68,6 +68,9 @@ export class HomeComponent{
       cidade: ''
     })
   }
+
+  public imgEmpresarial: string = 'assets/men.webp';
+  public imgBanner: string = 'assets/mulher.webp';
 
   public default: boolean = false;
   public beneficios: beneficios[] = [

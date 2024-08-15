@@ -1,15 +1,18 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  public open: boolean | null = null;
+  public logo: string = 'assets/logos/logo.jpeg';
+  public trilogo: string = 'assets/logos/trilogo.png';
 
+  public open: boolean | null = null;
   public activeMobile(){
     this.open = !this.open;
   }

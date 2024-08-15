@@ -1,7 +1,7 @@
-<div class="max-w-80 rounded-2xl py-4 px-3 text-white shadow-md planos" [ngStyle]="{'background': default == 'true' ? '#F6821F' : '#E84231'}">
+<div class="max-w-80 rounded-2xl py-4 px-3 text-white shadow-md planos" [ngStyle]="{'background': default == 'true' ? '#EC7109' : '#CC4738'}">
     <div class="flex flex-col justify-center items-center text-center">
       <div class="w-32 mb-4">
-        <img [src]="img" alt="">
+        <img [ngSrc]="img" alt="identificador planos" width="127" height="127" loading="lazy">
       </div>
       <span class="text-borderMobile">Plano</span>
       <h1 class="text-3xl font-semibold mb-3">{{ tipoPlano }}</h1>

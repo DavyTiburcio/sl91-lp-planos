@@ -1,20 +1,9 @@
 @media (max-width: 1125px) {
-  .mobile {
-    display: flex;
-    align-items: center;
-  }
-  .navbar {
-    display: none;
-  }
+  .mobile { display: flex; align-items: center;}
+  .navbar { display: none; }
 }
 
 @media (max-width: 675px) {
-  .button {
-    display: none;
-  }
-  .container {
-    gap: 5px;
-    padding: 10px;
-    justify-content: space-evenly;
-  }
+  .button { display: none; }
+  .container { gap: 5px; padding: 10px; justify-content: space-evenly;}
 }
