@@ -30,8 +30,8 @@ export class AppComponent implements OnInit {
           // Dispara o evento de conversão para o Google Analytics
           gtag('event', 'conversion', {
             send_to: '16607127908',
-            event_category: 'Conversão',
-            event_label: 'Inscrição Completa',
+            event_category: 'Submit lead form',
+            event_label: 'ORRxCOuPmMsZEOTS8u49',
             value: 1,
           });
         }
