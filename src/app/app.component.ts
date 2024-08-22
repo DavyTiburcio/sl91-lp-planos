@@ -25,15 +25,17 @@ export class AppComponent implements OnInit {
         filter(event => event instanceof NavigationEnd)
       )
       .subscribe((event: NavigationEnd) => {
-        // Verifica a rota específica
+        // Verifica a rota específica onde a conversão ocorre
         if (event.url === '/sucesso') {
-          // Dispara o evento para o Google Analytics
-          gtag('event', 'page_view', {
-            page_path: event.url,
-            page_title: 'Sucesso',
-            page_location: window.location.href,
+          // Dispara o evento de conversão para o Google Analytics
+          gtag('event', 'conversion', {
+            send_to: '16607127908',
+            event_category: 'Conversão',
+            event_label: 'Inscrição Completa',
+            value: 1,
           });
         }
       });
   }
 }
+
