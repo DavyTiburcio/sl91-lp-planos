@@ -1,3 +1,5 @@
+declare const gtag: Function;
+
 import { Component, inject } from '@angular/core';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
@@ -17,7 +19,6 @@ import { PlanosComponent } from '../../core/components/planos/planos.component';
 import { FooterComponent } from "../../core/components/footer/footer.component";
 // ROUTER
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -53,6 +54,12 @@ export class HomeComponent{
           },
       { headers: headers }).pipe(finalize(() => {
         this.router.navigate(['/sucesso']);
+        gtag('event', 'conversion', {
+          send_to: '16607127908',
+          event_category: 'Submit lead form',
+          event_label: 'ORRxCOuPmMsZEOTS8u49',
+          value: 1,
+        });
         this.clearForm();
       })).subscribe()
     } else {
