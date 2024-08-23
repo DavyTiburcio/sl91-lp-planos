@@ -55,25 +55,16 @@ export class HomeComponent{
       { headers: headers }).pipe(finalize(() => {
         this.router.navigate(['/sucesso']);
         gtag('event', 'conversion', {
-          send_to: 'AW-16607127908',
+          send_to: '16607127908',
           event_category: 'Submit lead form',
           event_label: 'ORRxCOuPmMsZEOTS8u49',
           value: 1,
         });
-        this.clearForm();
+        this.formHome.reset();
       })).subscribe()
     } else {
       alert("Preencha todas as informações corretamente!")
     }
-  }
-
-  private clearForm(){
-    this.formHome.patchValue({
-      name: '',
-      email: '',
-      telefone: '',
-      cidade: ''
-    })
   }
 
   public imgEmpresarial: string = 'assets/men.webp';
