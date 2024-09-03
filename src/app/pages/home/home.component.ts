@@ -1,5 +1,3 @@
-declare const gtag: Function;
-
 import { Component, inject } from '@angular/core';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
@@ -54,12 +52,6 @@ export class HomeComponent{
           },
       { headers: headers }).pipe(finalize(() => {
         this.router.navigate(['/sucesso']);
-        gtag('event', 'conversion', {
-          send_to: '16607127908',
-          event_category: 'Submit lead form',
-          event_label: 'ORRxCOuPmMsZEOTS8u49',
-          value: 1,
-        });
         this.formHome.reset();
       })).subscribe()
     } else {
