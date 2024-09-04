@@ -65,7 +65,8 @@ export class HomeComponent{
       })).subscribe(() =>
           {
             this.gtmService.pushTag({
-            event: 'conversion',});
+            event: 'conversion',
+            });
           })
     } else {
       alert("Preencha todas as informações corretamente!")
