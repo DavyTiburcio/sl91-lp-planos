@@ -12,6 +12,5 @@ export const routes: Routes = [
   {
     path: 'sucesso',
     component: SucessComponent,
-    pathMatch: 'full',
   },
 ];

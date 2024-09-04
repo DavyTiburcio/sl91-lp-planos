@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { GoogleTagManagerService } from 'angular-google-tag-manager';
+import { RouterModule } from '@angular/router';
 
 declare const gtag: Function;
 
 @Component({
   selector: 'app-sucess',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './sucess.component.html',
   styleUrl: './sucess.component.scss'
 })
