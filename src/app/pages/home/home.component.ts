@@ -17,6 +17,8 @@ import { PlanosComponent } from '../../core/components/planos/planos.component';
 import { FooterComponent } from "../../core/components/footer/footer.component";
 // ROUTER
 import { Router } from '@angular/router';
+
+declare const gtag: Function;
 @Component({
   selector: 'app-home',
   standalone: true,
