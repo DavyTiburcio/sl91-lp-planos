@@ -44,10 +44,6 @@ export class HomeComponent{
     cidade: ['', [Validators.required, Validators.minLength(3), stringValidator()]],
   })
 
-  qualquer() {
-    this.router.navigate(['/sucesso']);
-  }
-
   public sendForm(){
     if(this.formHome.valid) {
       const headers = new HttpHeaders().set('Content-Type', 'application/json')
