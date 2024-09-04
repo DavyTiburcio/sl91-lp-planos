@@ -18,6 +18,7 @@ import { FooterComponent } from "../../core/components/footer/footer.component";
 // ROUTER
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { GoogleTagManagerService } from 'angular-google-tag-manager';
 
 declare const gtag: Function;
 @Component({
@@ -31,6 +32,7 @@ declare const gtag: Function;
 })
 export class HomeComponent{
 
+  gtmService = inject(GoogleTagManagerService)
   fb = inject(FormBuilder);
   apiService = inject(apiService);
   router = inject(Router);
@@ -41,6 +43,10 @@ export class HomeComponent{
     telefone: ['', [Validators.required]],
     cidade: ['', [Validators.required, Validators.minLength(3), stringValidator()]],
   })
+
+  qualquer() {
+    this.router.navigate(['/sucesso']);
+  }
 
   public sendForm(){
     if(this.formHome.valid) {
@@ -56,7 +62,11 @@ export class HomeComponent{
       { headers: headers }).pipe(finalize(() => {
         this.router.navigate(['/sucesso']);
         this.formHome.reset();
-      })).subscribe()
+      })).subscribe(() =>
+          {
+            this.gtmService.pushTag({
+            event: 'conversion',});
+          })
     } else {
       alert("Preencha todas as informações corretamente!")
     }

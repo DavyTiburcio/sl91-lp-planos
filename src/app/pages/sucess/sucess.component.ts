@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { GoogleTagManagerService } from 'angular-google-tag-manager';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
-declare const gtag: Function;
 
 @Component({
   selector: 'app-sucess',
@@ -11,13 +8,6 @@ declare const gtag: Function;
   templateUrl: './sucess.component.html',
   styleUrl: './sucess.component.scss'
 })
-export class SucessComponent implements OnInit{
-  constructor(private gtmService: GoogleTagManagerService) {}
+export class SucessComponent {
 
-  ngOnInit() {
-    this.gtmService.pushTag({
-      event: 'conversion',
-      pageName: 'sucesso'
-    });
-  }
 }
