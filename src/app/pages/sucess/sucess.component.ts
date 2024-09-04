@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoogleTagManagerService } from 'angular-google-tag-manager';
 
 declare const gtag: Function;
 
@@ -9,14 +10,13 @@ declare const gtag: Function;
   templateUrl: './sucess.component.html',
   styleUrl: './sucess.component.scss'
 })
-export class SucessComponent implements OnInit {
+export class SucessComponent implements OnInit{
+  constructor(private gtmService: GoogleTagManagerService) {}
 
   ngOnInit() {
-    // Verifica se gtag está disponível e dispara o evento de conversão
-    if (typeof gtag === 'function') {
-      gtag('event', 'conversion', {
-        'send_to': 'AW-16607127908',
-      });
-    }
+    this.gtmService.pushTag({
+      event: 'conversion',
+      pageName: 'sucesso'
+    });
   }
 }
