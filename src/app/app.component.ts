@@ -3,6 +3,7 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { SucessComponent } from './pages/sucess/sucess.component';
 import { GoogleTagManagerService } from '../app/shared/services/google-tag-manager.service';
+import { AnalyticsService } from './shared/services/analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,10 @@ import { GoogleTagManagerService } from '../app/shared/services/google-tag-manag
 
 export class AppComponent{
 
-  constructor(private router: Router, private gtmService: GoogleTagManagerService) {}
+  constructor(
+    private router: Router,
+    private gtmService: GoogleTagManagerService,
+    private analyticsService: AnalyticsService) {}
 
   ngOnInit() {
     this.router.events.subscribe(event => {
