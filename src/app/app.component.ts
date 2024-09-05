@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { SucessComponent } from './pages/sucess/sucess.component';
-import { GoogleTagManagerService } from 'angular-google-tag-manager';
-import { filter } from 'rxjs';
+import { GoogleTagManagerService } from '../app/shared/services/google-tag-manager.service';
 
 @Component({
   selector: 'app-root',
@@ -15,21 +14,21 @@ import { filter } from 'rxjs';
 })
 
 export class AppComponent{
-  constructor(
-    private router: Router,
-    private gtmService: GoogleTagManagerService
-  ) {}
+
+  constructor(private router: Router, private gtmService: GoogleTagManagerService) {}
 
   ngOnInit() {
-    // Rastrear mudanças de rota
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-      if (event.urlAfterRedirects === '/sucesso') {
-        // Enviar evento de conversão para o GTM
-        this.gtmService.pushTag({
-          event: 'conversion',
-        });
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        // Verifica se a rota é 'sucesso'
+        if (event.urlAfterRedirects === '/sucesso') {
+          this.gtmService.pushEvent({
+            'event': 'conversion',
+            'conversionCategory': 'FormSubmission',
+            'conversionAction': 'SubmitSuccess',
+            'conversionLabel': 'SucessoPage'
+          });
+        }
       }
     });
   }

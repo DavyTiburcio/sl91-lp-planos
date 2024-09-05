@@ -8,7 +8,7 @@ import { provideHttpClient } from '@angular/common/http';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes, withHashLocation()),
+    provideRouter(routes),
     provideHttpClient(),
     importProvidersFrom(
       GoogleTagManagerModule.forRoot({ id: 'GTM-5GJZN7GT' })

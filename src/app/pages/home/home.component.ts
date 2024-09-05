@@ -58,12 +58,7 @@ export class HomeComponent{
       { headers: headers }).pipe(finalize(() => {
         this.router.navigate(['/sucesso']);
         this.formHome.reset();
-      })).subscribe(() =>
-          {
-            this.gtmService.pushTag({
-            event: 'conversion',
-            });
-          })
+      })).subscribe()
     } else {
       alert("Preencha todas as informações corretamente!")
     }
