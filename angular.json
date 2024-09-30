@@ -51,8 +51,7 @@
                 }
               ],
               "outputHashing": "all",
-              "outputPath": "dist/lp-planos",
-              "baseHref": "/webhook-data"
+              "outputPath": "dist/lp-planos"
             },
             "development": {
               "optimization": false,
