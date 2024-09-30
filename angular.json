@@ -50,7 +50,9 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "outputPath": "dist/lp-planos",
+              "baseHref": "/webhook-data"
             },
             "development": {
               "optimization": false,
