@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class WebhookService {
-  private apiUrl = 'https://www.saudeplanos.com/webhook-data';  // Endpoint da sua API backend
+  private apiUrl = 'http://localhost:4200/webhook-data';  // Endpoint da sua API backend
 
   constructor(private http: HttpClient) {}
 
