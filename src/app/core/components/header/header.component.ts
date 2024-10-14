@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  public logo: string = 'assets/logos/logo.jpeg';
-  public trilogo: string = 'assets/logos/trilogo.png';
+  public logo: string = 'assets/logos/logo.webp';
+  public trilogo: string = 'assets/logos/trilogo.webp';
 
   public open: boolean | null = null;
   public activeMobile(){
