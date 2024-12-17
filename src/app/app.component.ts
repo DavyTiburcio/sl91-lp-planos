@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { SucessComponent } from './pages/sucess/sucess.component';
 import { GoogleTagManagerService } from '../app/shared/services/google-tag-manager.service';
 import { AnalyticsService } from './shared/services/analytics.service';
+import { FacebookPixelService } from './shared/services/facebook-pixel.service';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +15,13 @@ import { AnalyticsService } from './shared/services/analytics.service';
   `,
 })
 
-export class AppComponent{
+export class AppComponent implements OnInit{
 
   constructor(
     private router: Router,
     private gtmService: GoogleTagManagerService,
-    private analyticsService: AnalyticsService) {}
+    private analyticsService: AnalyticsService,
+    private fbPixelService: FacebookPixelService) {}
 
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -35,6 +37,7 @@ export class AppComponent{
         }
       }
     });
+    this.fbPixelService.trackPageView();
   }
 }
 

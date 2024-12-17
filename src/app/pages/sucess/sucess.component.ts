@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FacebookPixelService } from '../../shared/services/facebook-pixel.service';
 
 @Component({
   selector: 'app-sucess',
@@ -8,6 +9,10 @@ import { RouterModule } from '@angular/router';
   templateUrl: './sucess.component.html',
   styleUrl: './sucess.component.scss'
 })
-export class SucessComponent {
+export class SucessComponent implements OnInit {
+  constructor(private fbPixelService: FacebookPixelService){}
 
+  ngOnInit(): void {
+      this.fbPixelService.trackPageView();
+  }
 }
