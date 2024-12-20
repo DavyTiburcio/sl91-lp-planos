@@ -4,7 +4,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { SucessComponent } from './pages/sucess/sucess.component';
 import { GoogleTagManagerService } from '../app/shared/services/google-tag-manager.service';
 import { AnalyticsService } from './shared/services/analytics.service';
-import { FacebookPixelService } from './shared/services/facebook-pixel.service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +20,7 @@ export class AppComponent implements OnInit{
     private router: Router,
     private gtmService: GoogleTagManagerService,
     private analyticsService: AnalyticsService,
-    private fbPixelService: FacebookPixelService) {}
+  ) {}
 
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -37,7 +36,7 @@ export class AppComponent implements OnInit{
         }
       }
     });
-    this.fbPixelService.trackPageView();
+
   }
 }
 

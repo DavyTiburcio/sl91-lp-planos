@@ -18,7 +18,6 @@ import { FooterComponent } from "../../core/components/footer/footer.component";
 // ROUTER
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
-import { FacebookPixelService } from '../../shared/services/facebook-pixel.service';
 
 @Component({
   selector: 'app-home',
@@ -29,14 +28,7 @@ import { FacebookPixelService } from '../../shared/services/facebook-pixel.servi
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit{
-
-  constructor(private fbPixelService: FacebookPixelService) {}
-
-  ngOnInit(): void {
-    // Dispara o evento PageView quando a rota é carregada
-    this.fbPixelService.trackPageView();
-  }
+export class HomeComponent{
 
   fb = inject(FormBuilder);
   apiService = inject(apiService);
